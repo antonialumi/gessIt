@@ -8,17 +8,27 @@ function writeUserFeedback(feedback){
 }
 
 function checkGuess() {
+    atempts++;
     
     const userGuess = document.getElementById('userGuess').value;
 
-    if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)){
-        alert('Please enter a valid number between 1 and 100.');
+    if(isNaN(userGuess)){
+        alert('Please enter a valid number');
         return;
     }
-    atempts++;
+    if (userGuess < 1){
+        alert('Please enter a number bigger than 0');
+        return;
+    } 
+    
+    if(userGuess > 100){
+        alert('Please enter a number lower or equal to 100');
+        return;
+    }
+
 
     let feedback = "ERROR: no user guess data"
-    
+
     if (userGuess == targetNumber) {
         feedback = `Congratulations! You guessed the number in ${atempts} attempts.`
     } else if (userGuess < targetNumber) {
