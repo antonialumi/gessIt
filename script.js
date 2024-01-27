@@ -1,6 +1,12 @@
 const targetNumber = Math.floor(Math.random() * 100) + 1;
 let atempts = 0;
 
+function writeUserFeedback(feedback){
+    document
+        .getElementById('feedback')
+        .innerHTML = feedback;
+}
+
 function checkGuess() {
     
     const userGuess = document.getElementById('userGuess').value;
@@ -12,10 +18,15 @@ function checkGuess() {
     atempts++;
 
     if (userGuess == targetNumber) {
-        document.getElementById('feedback').innerHTML = `Congratulations! You guessed the number in ${atempts} attempts.`;
-        } else if (userGuess < targetNumber) {
-            document.getElementById('feedback').innerHTML = 'Too low. Try again!';    
-        } else {
-            document.getElementById('feedback').innerHTML = 'Too high. Try again!';
-        }
+        const feedback = `Congratulations! You guessed the number in ${atempts} attempts.`
+        writeUserFeedback(feedback)
+    } else if (userGuess < targetNumber) {
+        document
+            .getElementById('feedback')
+            .innerHTML = 'Too low. Try again!';    
+    } else {
+        document
+            .getElementById('feedback')
+            .innerHTML = 'Too high. Try again!';
+    }
 } 
