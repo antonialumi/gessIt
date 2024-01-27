@@ -17,16 +17,15 @@ function checkGuess() {
     }
     atempts++;
 
+    let feedback = "ERROR: no user guess data"
+    
     if (userGuess == targetNumber) {
-        const feedback = `Congratulations! You guessed the number in ${atempts} attempts.`
-        writeUserFeedback(feedback)
+        feedback = `Congratulations! You guessed the number in ${atempts} attempts.`
     } else if (userGuess < targetNumber) {
-        document
-            .getElementById('feedback')
-            .innerHTML = 'Too low. Try again!';    
+        feedback = 'Too low. Try again!' 
     } else {
-        document
-            .getElementById('feedback')
-            .innerHTML = 'Too high. Try again!';
+        feedback = 'Too high. Try again!'
     }
+
+    writeUserFeedback(feedback)
 } 
