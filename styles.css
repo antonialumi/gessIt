@@ -23,3 +23,16 @@ button {
     background-color: rgb(248, 187, 248);
     border-radius: 7px ;
 }
+
+.playAgainButton{
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: rgb(248, 187, 248);
+    border-radius: 7px ;
+    display: none;
+    z-index: 1;
+}
+.playAgainButton-active{
+    display: block;
+}

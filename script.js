@@ -8,10 +8,23 @@ function writeUserFeedback(feedback){
 }
 
 function confettiRain(){
-    var confettiContainer = document.getElementById('confetti');
-    confettiContainer.classList.add('confetti-active');
+    document
+        .getElementById('confetti')
+        .classList
+        .add('confetti-active');
 }
 
+function showPlayAgainOption(){
+    document
+        .getElementById('playAgainOption')
+        .classList
+        .add('playAgainButton-active'); 
+        
+}
+
+function playAgain(){
+    location.reload();
+}
 
 function checkGuess() {
     atempts++;
@@ -38,6 +51,7 @@ function checkGuess() {
     if (userGuess == targetNumber) {
         feedback = `Congratulations! You guessed the number in ${atempts} attempts.` 
         confettiRain();
+        showPlayAgainOption();
     } else if (userGuess < targetNumber) {
         feedback = 'Too low. Try again!' 
     } else {
