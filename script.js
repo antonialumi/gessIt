@@ -7,6 +7,12 @@ function writeUserFeedback(feedback){
         .innerHTML = feedback;
 }
 
+function confettiRain(){
+    var confettiContainer = document.getElementById('confetti');
+    confettiContainer.classList.add('confetti-active');
+}
+
+
 function checkGuess() {
     atempts++;
     
@@ -30,7 +36,8 @@ function checkGuess() {
     let feedback = "ERROR: no user guess data"
 
     if (userGuess == targetNumber) {
-        feedback = `Congratulations! You guessed the number in ${atempts} attempts.`
+        feedback = `Congratulations! You guessed the number in ${atempts} attempts.` 
+        confettiRain();
     } else if (userGuess < targetNumber) {
         feedback = 'Too low. Try again!' 
     } else {
